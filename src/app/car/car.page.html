@@ -32,6 +32,11 @@
     </ion-item>
   </ion-list>
 
+  <ion-item lines="full">
+    <ion-label>Total:</ion-label>
+    <ion-text slot="end">{{ total | currency }}</ion-text>
+  </ion-item>
+
 
   <ion-button class="end" expand="block" color="success" (click)="checkout()">
     Pay

@@ -11,6 +11,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class CarPage implements OnInit {
   public cart: Products[] = [];
+  public total: number = 0;
 
   constructor(
     private readonly cartService: CartService,
@@ -19,6 +20,7 @@ export class CarPage implements OnInit {
 
   ngOnInit() {
     this.cart = this.cartService.getCart();
+    this.calculateTotal();
   }
 
   removeFromCart(product: Products) {
@@ -36,7 +38,6 @@ export class CarPage implements OnInit {
 
       await alert.present();
 
-      
       this.cartService.clearCart();
       this.cart = [];
     } else {
@@ -48,5 +49,12 @@ export class CarPage implements OnInit {
 
       await alert.present();
     }
+  }
+
+  calculateTotal() {
+    this.total = this.cart.reduce(
+      (acc, product) => acc + (product.price || 0),
+      0
+    );
   }
 }
