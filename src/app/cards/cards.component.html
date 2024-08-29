@@ -1,0 +1,16 @@
+<ion-card (click)= "click(array.id)" >
+
+  <img src="{{array.image}}"/>
+
+  <ion-card-header>
+    <ion-card-title>{{array.title}}</ion-card-title>
+
+    <div>
+      <p>{{ array.price | currency}}</p>
+      <p>{{ array.rating.rate }} <ion-icon *ngFor="let star of [].constructor(fire)" name="star"></ion-icon> </p>
+    </div>
+
+  </ion-card-header>
+
+  <ion-card-content>{{array.category}}</ion-card-content>
+</ion-card>

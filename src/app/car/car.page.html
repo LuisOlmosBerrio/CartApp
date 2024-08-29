@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Carrito</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/home']">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Carrito</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let product of cart">
+      <ion-thumbnail slot="start">
+        <img [src]="product.image" alt="Imagen del producto">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.price | currency }}</p>
+        <p>{{ product.description }}</p>
+      </ion-label>
+      <ion-button fill="clear" color="danger" (click)="removeFromCart(product)">
+        <ion-icon name="trash-bin"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-button class="end" expand="block" color="success" (click)="checkout()">
+    Pay
+  </ion-button>
+
+</ion-content>

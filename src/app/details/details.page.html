@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Details</ion-title>
+    <ion-buttons slot="end">
+    <ion-button [routerLink]="['/home']">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<h1>
+  {{product?.title}}
+</h1>
+
+<div class="img">
+  <img [src]="product?.image" alt="imagen del producto">
+</div>
+
+<div class="back">
+  <p class="baknour">{{product?.category}}</p>
+  <p class="pirce">{{product?.price | currency}}</p>
+</div>
+<div class="description">
+  <h3>Descripción</h3>
+  <p>{{product?.description}}</p>
+</div>
+<div class="rating">
+  <p>Comprado: </p>
+  <p>{{ product?.rating?.rate }}
+    <ion-icon *ngFor="let star of [].constructor(fire)" name="star"></ion-icon>
+  </p>
+
+  
+</div>
+
+<div>
+  <ion-buttons slot="end">
+      <ion-button [routerLink]="['/car']">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+</div>
+
+
+<ion-button class="add" expand="block" (click)="addToCart()">Agregar al Carrito</ion-button>
+
+
+</ion-content>

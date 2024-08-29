@@ -1,3 +1,27 @@
+.produc{
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 95%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.button{
+  margin-top: 0px;
+  width: 35px;
+  height: 35px;
+}
+
+.ion-title{
+  font-size: 35px;
+}
+
+.ion-toolbar{
+  height: 55px;
+}
+
 #container {
   text-align: center;
 
@@ -25,3 +49,5 @@
 #container a {
   text-decoration: none;
 }
+
+
